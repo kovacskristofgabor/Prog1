@@ -54,17 +54,19 @@ try {
     win.wait_for_button();
 
     // 5. Add a 100x100 image and make it move when next is pressed
-    Image apple {Point{0,0}, "finn.jpg"};
-    win.attach(apple);
+    Image finn {Point{0,0}, "finn.jpg"};
+    win.attach(finn);
     win.wait_for_button();
 
-    for (int i = 0; i < 8; ++i) {
-        for (int j = 0; j < 8; ++j) {
-            apple.move(100, 0);
+    for (int i = 0; i < 8; ++i)
+    {
+        for (int j = 0; j<8; ++j)
+        {
             win.wait_for_button();
+            if (i == 7 and j == 7) break; //this prevents the img to move outside of the grid
+            if(j<7) finn.move(100,0);
+            else finn.move(-700,100);
         }
-        apple.move(-700, 100);          // buggy
-        win.wait_for_button();
     }
 }
 catch(exception& e) {
