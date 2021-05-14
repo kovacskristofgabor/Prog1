@@ -22,7 +22,7 @@ void inc_contents(C& c, int n = 1)
         a += n;
 }
 
-    // 6 Write a copy operation
+    // 6 - Write a copy operation
 template<typename Iter1, typename Iter2>
     // requires Input_iterator<Iter1>() && Output_iterator<Iter2>()
 Iter2 my_copy(Iter1 f1, Iter1 e1, Iter2 f2)
@@ -45,19 +45,19 @@ try {
     std::copy(arr, arr + size, ai.begin());
     print_contents(ai, "std::array: ");
 
-    // 2 Define a vector with the same 10 elements
+    // 2 - Define a vector with the same 10 elements
     std::vector<int> vi(size);
     std::copy(arr, arr + size, vi.begin());
     print_contents(vi, "std::vector: ");
 
-    // 3 Define a list with the same 10 elements
+    // 3 - Define a list with the same 10 elements
     std::list<int> li(size);
     std::copy(arr, arr + size, li.begin());
     print_contents(li, "std::list: ");
 
     std::cout << '\n';
 
-    // 4 Define copies of the array, vector & list
+    // 4 - Define copies of the array, vector & list
     std::array<int, size> ai2 = ai;
     std::vector<int> vi2 = vi;
     std::list<int> li2 = li;
@@ -67,24 +67,24 @@ try {
 
     std::cout << '\n';
 
-    // 5 Increase values in array by 2, vector by 3 and list by 5
+    // 5 - Increase values in array by 2, vector by 3 and list by 5
     inc_contents(ai2, 2);
     inc_contents(vi2, 3);
     inc_contents(li2, 5);
-    print_contents(ai2, "array inc'd: ");
-    print_contents(vi2, "vector inc'd: ");
-    print_contents(li2, "list inc'd: ");
+    print_contents(ai2, "array +: ");
+    print_contents(vi2, "vector +: ");
+    print_contents(li2, "list +: ");
 
     std::cout << '\n';
 
-    // 7 Use my_copy() to copy array into vector and list into array
+    // 7 - Use my_copy() to copy array into vector and list into array
     my_copy(ai2.begin(), ai2.end(), vi2.begin());
     my_copy(li2.begin(), li2.end(), ai2.begin());
     print_contents(ai2, "array copied: ");
     print_contents(vi2, "vector copied: ");
     print_contents(li2, "list copied: ");
 
-    // 8 Use std::find to search for values
+    // 8 - Use std::find to search for values
     std::vector<int>::iterator vit;
     vit = std::find(vi2.begin(), vi2.end(), 3);
     if (vit != vi2.end())
