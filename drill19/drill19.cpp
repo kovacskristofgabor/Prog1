@@ -10,7 +10,6 @@ struct S {
 
     T& get();
     const T& get() const;
-    //void set(T new_t) { val = new_t; }
 
 private:
     T val;
@@ -73,11 +72,11 @@ template<typename T> void read_val(T& v)
 
 int main()
 {
-    S<int> si {37};
-    S<char> sc {'c'};
-    S<double> sd {10.2};
+    S<int> si {24};
+    S<char> sc {'k'};
+    S<double> sd {40.2};
     S<std::string> s {"Hello!"};
-    S<std::vector<int>> svi { std::vector<int>{1, 1, 2, 3, 5, 8}};
+    S<std::vector<int>> svi { std::vector<int>{1, 2, 8, 4, 5, 9}};
 
     std::cout << "S<int> : " << si.get() << '\n'
               << "S<char> : " << sc.get() << '\n'
